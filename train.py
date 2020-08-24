@@ -276,7 +276,7 @@ def main(_):
         checkpoint_path = os.path.join(FLAGS.train_dir, 'best',
                                        FLAGS.model_architecture + '_'+ str(int(best_accuracy*10000)) + '.ckpt')
         tf.logging.info('Saving best model to "%s-%d"', checkpoint_path, training_step)
-        saver.save(sess, checkpoint_path, global_step=training_step)
+        saver.save(sess, "." + checkpoint_path, global_step=training_step)
       tf.logging.info('So far the best validation accuracy is %.2f%%' % (best_accuracy*100))
 
   set_size = audio_processor.set_size('testing')
